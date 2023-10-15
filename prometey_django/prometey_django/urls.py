@@ -22,7 +22,7 @@ from django.urls import path
 urlpatterns = [
     path("", ind),
     path("admin/", admin.site.urls),
-    path("get_arrow/", getjson_arrow),
+    path("get_arrow/<int:path>", getjson_arrow),
     path("kamen/", index, name='index'),
     path("zavod/", zavod, name='zavod'),
     path("alitic/", alitic, name='alitic'),

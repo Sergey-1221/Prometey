@@ -2222,15 +2222,6 @@
         "type": "Polygon"
       }
     },
-
-
-
-
-
-
-
-
-
     {
       "type": "Feature",
       "id": "relation/-228132",
@@ -2242,7 +2233,7 @@
         "name": "Hall Central",
         "stroke": "#000314",
         "stroke-opacity": "1",
-        "stroke-width": 0.5,
+        "stroke-width": "0.5",
         "type": "multipolygon",
         "level": "2",
         "id": "relation/-228132"

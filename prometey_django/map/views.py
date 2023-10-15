@@ -7,7 +7,7 @@ from .forms import CustomUserCreationForm
 from .models import *
 
 
-def getjson_arrow(requests):
+def getjson_arrow(requests, path):
     data_arrow = {
         "type": "FeatureCollection",
         "features": [
@@ -32,7 +32,10 @@ def getjson_arrow(requests):
     #data_arrow["features"].append(data[11])
     #data_arrow["features"].append(data[12])
     #data_arrow["features"].append(data[13])
+
     """
+    if path == 1:
+        data_arrow["features"].append(data[14])
     return JsonResponse(data_arrow)
 
 

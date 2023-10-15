@@ -74,7 +74,7 @@ const layers = [
 
 // Retrieve the geojson from the path and add the map
 const geojson = await (await fetch('maps/zavod.geojson')).json();
-const geojson_arrow = await (await fetch('http://127.0.0.1:3030/get_arrow/')).json();
+const geojson_arrow = await (await fetch('http://127.0.0.1:3030/get_arrow/1')).json();
 
 geojson["features"] = geojson["features"].concat(geojson_arrow["features"])
 map.indoor.addMap(IndoorMap.fromGeojson(geojson, { layers }));
