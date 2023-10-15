@@ -25,11 +25,59 @@ const mapLoadedPr = new Promise(resolve => map.on('load', resolve));
  */
 
 addIndoorTo(map);
+const layers = [
+    {
+        "filter": [
+            "filter-==",
+            "indoor",
+            "room"
+        ],
+        "id": "indoor-rooms",
+        "type": "fill",
+        "source": "indoor",
+        "paint": {
+            "fill-color": "#6d6d6d",
+            "fill-opacity": 0.9
+        }
+    },
+    {
+        "filter": [
+            "filter-==",
+            "indoor",
+            "area"
+        ],
+        "id": "indoor-areas",
+        "type": "fill",
+        "source": "indoor",
+        "paint": {
+            "fill-color": "#FFFFFF",
+            "fill-opacity": 0.5
+        }
+    },
+    {
+        "filter": [
+            "filter-==",
+            "indoor",
+            "arrow"
+        ],
+        "id": "indoor-arrows",
+        "type": "line",
+        "source": "indoor",
+        "paint": {
+            "line-color": "#ff0000",
+            "line-width": 2
+
+        }
+    }
+    
+]
 
 // Retrieve the geojson from the path and add the map
 const geojson = await (await fetch('maps/zavod.geojson')).json();
-map.indoor.addMap(IndoorMap.fromGeojson(geojson));
+const geojson_arrow = await (await fetch('maps/arrow_1.geojson')).json();
 
+//geojson["features"] = geojson["features"].concat(geojson_arrow["features"])
+map.indoor.addMap(IndoorMap.fromGeojson(geojson, { layers }));
 // Add the specific control
 map.addControl(new IndoorControl());
 
@@ -83,12 +131,14 @@ map.on('click', 'pois', (e) => {
 
     const { geometry, properties } = e.features![0];
     const coordinates = (geometry as Point).coordinates.slice();
-    const description = properties?.name + ' (level: ' + properties?.level + ')';
+    const description = properties?.name + ' (level: ' + properties?.level + ')<a onclick="clear_arrow()">Тык</a>';
 
     new Popup()
         .setLngLat(coordinates as [number, number])
         .setHTML(description)
         .addTo(map);
+
+    clear_arrow();
 });
 
 map.on('mouseenter', 'pois', () => {
@@ -99,3 +149,20 @@ map.on('mouseleave', 'pois', () => {
     map.getCanvas().style.cursor = '';
 });
 
+function clear_arrow(){
+    
+    fetch('maps/arrow.geojson').then((response) => response.json())
+    .then((data) => {
+        //map.indoor.addMap(IndoorMap.fromGeojson(data, { layers }));
+        map.on('load', () => map.addSource('arrow', data));
+    });
+    //
+    
+}
+
+//function create_
+/*
+response => {
+            
+        }
+*/

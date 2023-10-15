@@ -49,7 +49,7 @@ const layers = [
         "source": "indoor",
         "paint": {
             "fill-color": "#0000FF",
-            "fill-opacity": 0.5
+            "fill-opacity": 1
         }
     }
 ]
