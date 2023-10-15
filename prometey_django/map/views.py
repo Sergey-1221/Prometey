@@ -36,6 +36,12 @@ def getjson_arrow(requests, path):
     """
     if path == 1:
         data_arrow["features"].append(data[14])
+    elif path == 2:
+        data_arrow["features"].append(data[15])
+    elif path == 3:
+        data_arrow["features"].append(data[16])
+        data_arrow["features"].append(data[17])
+
     return JsonResponse(data_arrow)
 
 
@@ -48,7 +54,11 @@ def index(request):
 
 
 def zavod(request):
-    return render(request, 'zavod.html')
+    context = {}
+    num_path = request.GET.get("path")
+    if num_path != None:
+        context["num_path"] = num_path
+    return render(request, 'zavod.html', context=context)
 
 
 def sensors(request):

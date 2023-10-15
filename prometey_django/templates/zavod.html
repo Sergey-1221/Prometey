@@ -3,10 +3,16 @@
 
 {% block content %}
     <div>
-        <section class="menu">Меню навигации</section>
+        <section class="menu">Меню навигации:<br>
+            <a href="/zavod/" style="color: #211375;">Без маршрута</a><br>
+            <a href="/zavod/?path=1" style="color: #211375;">Маршрут - 1</a><br>
+            <a href="/zavod/?path=2" style="color: #211375;">Маршрут - 2</a><br>
+            <a href="/zavod/?path=3" style="color: #211375;">Маршрут - 3 (Два этажа)</a><br>
+        </section>
+        
     </div>
 
     <div class="article">
-        <iframe src="http://localhost:5173/zavod.html#16.06/55.742451/37.747757/86.7/60" class="map"></iframe>
+        <iframe src="http://localhost:5173/zavod.html?path={{num_path}}#16.06/55.742451/37.747757/86.7/60" class="map"></iframe>
     </div>
 {% endblock %}

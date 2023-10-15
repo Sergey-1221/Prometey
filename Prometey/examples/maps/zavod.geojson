@@ -1665,12 +1665,108 @@
         "type": "Polygon"
       }
     },
+    {
+      "type": "Feature",
+      "id": "relation/-228132",
+      "properties": {
+        "@id": "relation/6021911",
+        "fill": "#000000",
+        "fill-opacity": "1",
+        "indoor": "room-sp",
+        "name": "Hall Central",
+        "stroke": "#000000",
+        "stroke-opacity": "1",
+        "stroke-width": "0.5",
+        "type": "multipolygon",
+        "level": "1",
+        "id": "relation/-228132"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              37.74695526027449,
+              55.7432782482326
+            ],
+            [
+              37.74673745571255,
+              55.743174507432684
+            ],
+            [
+              37.746821226697676,
+              55.74311847619063
+            ],
+            [
+              37.747035089095476,
+              55.74323053859425
+            ],
+            [
+              37.74695526027449,
+              55.7432782482326
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
 
 
 
 
 
 
+
+
+
+
+
+
+    
+    {
+      "type": "Feature",
+      "id": "relation/-2281357",
+      "properties": {
+        "@id": "relation/6021911",
+        "fill": "#000000",
+        "fill-opacity": "1",
+        "indoor": "room-sp",
+        "name": "Hall Central",
+        "stroke": "#000000",
+        "stroke-opacity": "1",
+        "stroke-width": "0.5",
+        "type": "multipolygon",
+        "level": "2",
+        "id": "relation/-2281357"
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              37.74695526027449,
+              55.7432782482326
+            ],
+            [
+              37.74673745571255,
+              55.743174507432684
+            ],
+            [
+              37.746821226697676,
+              55.74311847619063
+            ],
+            [
+              37.747035089095476,
+              55.74323053859425
+            ],
+            [
+              37.74695526027449,
+              55.7432782482326
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      }
+    },
+    
     {
       "type": "Feature",
       "id": "relation/-228132",
