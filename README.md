@@ -1,3 +1,4 @@
+## NODE.JS
 1. скачать nodejs
 2. запустить windows powershell
 3. сначала указать путь до папки Prometey (cd *полный путь скопировать*)(пиример cd E:\ПРОМЕТЕЙ\Promete\Prometey)
