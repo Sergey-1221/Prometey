@@ -26,9 +26,10 @@ def getjson_arrow(requests):
 
 
 def index(request):
+    print(CustomUser.objects.all())
     context = {
         'sensors': len(Sensor.objects.all()),
-        'employs': len(CustomUser.objects.all()),
+        #'employs': len(CustomUser.objects.all()),
     }
     return render(request, 'KAMEN.html', context=context)
 
