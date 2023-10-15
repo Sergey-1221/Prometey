@@ -14,7 +14,6 @@
 5. pip install Django
 6. pip install django-cors-headers
 7. python manage.py runserver 3030
-8. потом прописать команду python manage.py runserver 3030
 
 ## Запуск 
 1. переходим по адресу http://127.0.0.1:3030/
