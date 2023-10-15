@@ -17,19 +17,27 @@ def getjson_arrow(requests):
     f = open('arrow_1.geojson')
     data = json.load(f)
     data = data["features"]
-    data_arrow["features"].append(data[0])
+    #data_arrow["features"].append(data[0])
     data_arrow["features"].append(data[1])
-    data_arrow["features"].append(data[2])
+    #data_arrow["features"].append(data[2])
     data_arrow["features"].append(data[3])
-    # data_arrow["features"].append(data[4])
+    #data_arrow["features"].append(data[4])
+    #data_arrow["features"].append(data[5])
+    data_arrow["features"].append(data[6])
+    #data_arrow["features"].append(data[7])
+    data_arrow["features"].append(data[8])
+    #data_arrow["features"].append(data[9])
+    #data_arrow["features"].append(data[10])
+    #data_arrow["features"].append(data[11])
+    #data_arrow["features"].append(data[12])
+    #data_arrow["features"].append(data[13])
     return JsonResponse(data_arrow)
 
 
 def index(request):
-    print(CustomUser.objects.all())
     context = {
         'sensors': len(Sensor.objects.all()),
-        #'employs': len(CustomUser.objects.all()),
+        'employs': len(CustomUser.objects.all()),
     }
     return render(request, 'KAMEN.html', context=context)
 
