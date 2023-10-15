@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+      <div class="article">
+
+    <div class="foto">
+      <img src="{% static 'image/5975d296c49fd75c.png' %}" width="100%" height="100%">
+    </div>
+
+
+      <div class="ug">
+        <h4>
+          <p>{{ employ.fio }}</p>
+          <p>ID: {{ employ.id }}</p>
+        </h4>
+      </div>
+
+
+      <div class="main_info">
+        <h1>ОСНОВНАЯ ИНФОРМАЦИЯ:</h1>
+        <span>Дата рождения:</span><span class="added_info">{{ employ.date_of_birth }}</span>
+        <hr>
+        <span>Пол:</span><span class="added_info">{{ employ.gender }}</span>
+        <hr>
+        <span>Телефон:</span><span class="added_info">{{ employ.phone }}</span>
+        <hr>
+        <span>E-mail:</span><span class="added_info">{{ employ.email }}</span>
+        <hr>
+        <span>ВКонтакте:</span><span class="added_info">{{ employ.vkontakte }}</span>
+        <hr>
+        <span>Telegram:</span><span class="added_info">{{ employ.telegram }}</span>
+        <hr>
+      </div>
+
+      <div class="work_info">
+        <h1>РАБОЧАЯ ИНФОРМАЦИЯ:</h1>
+        <span>Должность:</span><span class="added_info">{{ employ.position }}</span>
+        <hr>
+        <span>Отдел:</span><span class="added_info">{{ employ.department }}</span>
+        <hr>
+        <span>Начальник отдела:</span><span class="added_info">{{ employ.supervisor }}</span>
+        <hr>
+        <span>ID рабочего места:</span><span class="added_info">{{ employ.department.id }}</span>
+        <hr>
+        <span>Допуск к отделам:</span><span class="added_info">Общий</span>
+        <hr>
+        <span>Принят на работу:</span><span class="added_info">{{ employ.date_joined }}</span>
+        <hr>
+        <span>З/П:</span><span class="added_info">{{ employ.salary }} р.</span>
+        <hr>
+      </div>
+
+
+
+  </div>
+{% endblock %}

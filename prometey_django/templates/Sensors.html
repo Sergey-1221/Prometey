@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="reestr_buttons">
+      <div class="manage_button" style="margin-right: 10px;"><img src="{% static 'image/add.svg' %}" width="40px" height="40px"></div>
+      <div class="manage_button"><img src="{% static 'image/rubbish.png' %}" width="40px" height="40px"></div>
+      <div class="manage_button" style="background-color: #4A67FF; margin-left: 40px;"><img src="{% static 'image/find.png' %}" width="40px" height="40px"></div>
+    </div>
+
+<div class="article">
+
+    <table class="reestr_of_workers">
+
+        <tr>
+
+            <th>ID датчика</th>
+            <th>Название</th>
+            <th>Тип датчика</th>
+            <th>Состояние</th>
+            <th>Местоположение</th>
+
+        </tr>
+
+        {% for sensor in sensors %}
+            <tr>
+                <td>{{ sensor.id }}</td>
+                <td>{{ sensor.name }}</td>
+                <td>{{ sensor.type }}</td>
+                <td>{{ sensor.state }}</td>
+                <td>{{ sensor.location }}</td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+{% endblock %}

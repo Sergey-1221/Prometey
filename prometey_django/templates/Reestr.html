@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="reestr_buttons">
+      <div class="manage_button" style="margin-right: 10px;"><img src="{% static 'image/add.svg' %}" width="40px" height="40px"></div>
+      <div class="manage_button"><img src="{% static 'image/rubbish.png' %}" width="40px" height="40px"></div>
+      <div class="manage_button" style="background-color: #4A67FF; margin-left: 40px;"><img src="{% static 'image/find.png' %}" width="40px" height="40px"></div>
+    </div>
+
+<div class="article">
+
+    <table class="reestr_of_workers">
+
+        <tr>
+
+            <th>ID сотрудника</th>
+            <th>ФИО</th>
+            <th>Отдел</th>
+            <th>Должность</th>
+            <th>Допуски к отделам</th>
+            <th>Профиль</th>
+
+        </tr>
+
+        {% for sotr in employs %}
+            <tr>
+                <td>{{ sotr.id }}</td>
+                <td>{{ sotr.fio }}</td>
+                <td>{{ sotr.department }}</td>
+                <td>{{ sotr.position }}</td>
+                <td>{{ sotr.department_access }}</td>
+                <td><a href="{% url 'employ_view' sotr.id %}" style="color: #358bc4">Профиль</a></td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+{% endblock %}

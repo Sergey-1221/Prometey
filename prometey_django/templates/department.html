@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="reestr_buttons">
+      <div class="manage_button" style="margin-right: 10px;"><img src="{% static 'image/add.svg' %}" width="40px" height="40px"></div>
+      <div class="manage_button"><img src="{% static 'image/rubbish.png' %}" width="40px" height="40px"></div>
+      <div class="manage_button" style="background-color: #4A67FF; margin-left: 40px;"><img src="{% static 'image/find.png' %}" width="40px" height="40px"></div>
+    </div>
+
+<div class="article">
+
+    <table class="reestr_of_workers">
+
+        <tr>
+
+            <th>ID отдела</th>
+            <th>Название</th>
+            <th>Глава отдела</th>
+            <th>Ограничение доступа</th>
+            <th>Профиль</th>
+
+        </tr>
+
+        {% for department in departments %}
+            <tr>
+                <td>{{ department.id }}</td>
+                <td>{{ department.name }}</td>
+                <td>{{ department.main_employ }}</td>
+                <td>{% if department.is_access %}Открытый{% else %}Приватный{% endif %}</td>
+                <td><a href="#" style="color: #358bc4">Профиль</a></td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+{% endblock %}

@@ -16,8 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from map.views import *
+from django.contrib.auth import views as auth_views
+from django.urls import path
 
 urlpatterns = [
+    path("", ind),
     path("admin/", admin.site.urls),
     path("get_arrow/", getjson_arrow),
+    path("kamen/", index, name='index'),
+    path("zavod/", zavod, name='zavod'),
+    path("alitic/", alitic, name='alitic'),
+    path("login/", register_view, name='login'),
+    path("department/", department, name='department'),
+    path("oborudovanie/", oborudovanie, name='oborudovanie'),
+    path("sensors/", sensors, name='sensors'),
+    path("employs/", employs, name='employs'),
+    path("employs/<int:pk>", employ_view, name='employ_view'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 ]
