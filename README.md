@@ -12,8 +12,9 @@
 3. сначала указать путь до папки(cd полный путь скопировать)(пример cd E:\ПРОМЕТЕЙ\Promete\prometey-django)
 4. написать команды:
 5. pip install Django
-6. pip install django-cors-headers
-7. python manage.py runserver 3030
+6. pip install Pillow
+7. pip install django-cors-headers
+8. python manage.py runserver 3030
 
 ## Запуск 
 1. переходим по адресу http://127.0.0.1:3030/
