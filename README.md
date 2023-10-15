@@ -14,7 +14,9 @@
 5. pip install Django
 6. pip install Pillow
 7. pip install django-cors-headers
-8. python manage.py runserver 3030
+8. pip install networkx
+9. python manage.py runserver 3030
 
 ## Запуск 
-1. переходим по адресу http://127.0.0.1:3030/
+1. После того, как запустили PYTHON и NODE.JS
+2. Переходим по адресу http://127.0.0.1:3030/
