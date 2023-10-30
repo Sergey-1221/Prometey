@@ -1,4 +1,5 @@
 from django.contrib.auth import login, authenticate
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 import json
@@ -45,6 +46,7 @@ def getjson_arrow(requests, path):
     return JsonResponse(data_arrow)
 
 
+@login_required(login_url='login')
 def index(request):
     context = {
         'sensors': len(Sensor.objects.all()),
@@ -53,6 +55,7 @@ def index(request):
     return render(request, 'KAMEN.html', context=context)
 
 
+@login_required(login_url='login')
 def zavod(request):
     context = {}
     num_path = request.GET.get("path")
@@ -61,6 +64,7 @@ def zavod(request):
     return render(request, 'zavod.html', context=context)
 
 
+@login_required(login_url='login')
 def sensors(request):
     context = {
         'sensors': Sensor.objects.all(),
@@ -68,6 +72,7 @@ def sensors(request):
     return render(request, 'Sensors.html', context=context)
 
 
+@login_required(login_url='login')
 def department(request):
     context = {
         'departments': Department.objects.all(),
@@ -111,10 +116,12 @@ def register_view(request):
     return render(request, 'index.html', {'form': form})
 
 
+@login_required(login_url='login')
 def alitic(request):
     return render(request, 'alitic.html')
 
 
+@login_required(login_url='login')
 def employs(request):
     context = {
         'employs': CustomUser.objects.all(),
@@ -122,6 +129,7 @@ def employs(request):
     return render(request, 'Reestr.html', context=context)
 
 
+@login_required(login_url='login')
 def employ_view(request, pk):
     context = {
         'employ': CustomUser.objects.get(pk=pk),
@@ -129,6 +137,7 @@ def employ_view(request, pk):
     return render(request, 'Sotrudnik.html', context=context)
 
 
+@login_required(login_url='login')
 def oborudovanie(request):
     context = {
         'oborudovanie': Equipment.objects.all(),
@@ -136,5 +145,6 @@ def oborudovanie(request):
     return render(request, 'Oborudovanie.html', context=context)
 
 
+@login_required(login_url='login')
 def ind(request):
     return redirect('zavod')

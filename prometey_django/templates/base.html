@@ -3,40 +3,39 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-    <title>Indra</title>
+    <title>INDRA</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
     <link rel="icon" href="{% static 'image/402de4e6a8ea2d56.svg' %}">
     <script src="{% static 'main.js' %}"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@700&family=Istok+Web&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <div class="header">
 
     <div class="header1">
-        <a href="{% url 'login' %}"><img src="{% static 'image/Frame_4.png' %}" alt="Logo"></a>
+        <a href="{% url 'login' %}"><img src="{% static 'image/logo_inverse.png' %}" alt="Logo"></a>
     </div>
 
-    <ul class="header2">
-        <a href="{% url 'zavod' %}" class="a1"><span>Карта</span></a>
-        <a href="{% url 'alitic' %}" class="a1"><span>Аналитика</span></a>
-        <a href="{% url 'index' %}" class="a1"><span>Ваше предприятие</span></a>
-        <a href="{% url 'logout' %}" class="a1"><span>Выйти</span></a>
-    </ul>
+    <div class="header2">
+        <a href="{% url 'index' %}" class="a1"><span>ВАШЕ ПРЕДПРИЯТИЕ</span></a>
+        <a href="{% url 'zavod' %}" class="a1"><span>КАРТА</span></a>
+        <a href="{% url 'alitic' %}" class="a1"><span>АНАЛИТИКА</span></a>   
+        <a href="{% url 'logout' %}" class="a1"><span>ВЫЙТИ</span></a>
+    </div>
 
 </div>
 
 <div class="menu">
     <div class="nav">
-        <a class="a2" href="{% url 'index' %}"><span>Обзор</span></a>
-        <a class="a2" href="{% url 'employs' %}"><span>Реестр сотрудников</span></a>
-        <a class="a2" href="#"><span>Техника</span></a>
-        <a class="a2" href="{% url 'sensors' %}"><span>Датчики</span></a>
-        <a class="a2" href="{% url 'department' %}"><span>Отделы</span></a>
-        <a class="a2" href="{% url 'oborudovanie' %}"><span>Оборудование</span></a>
+        <a class="a2" href="{% url 'index' %}"><div class="menu_image"><img src="{% static 'image/main_panel.png' %}" width="22px"></div><span>Обзор</span></a>
+        <a class="a2" href="{% url 'employs' %}"><div class="menu_image"><img src="{% static 'image/worker.png' %}"></div><span>Реестр сотрудников</span></a>
+        <a class="a2" href="#"><div class="menu_image"><img src="{% static 'image/vehicle.png' %}"></div><span>Техника</span></a>
+        <a class="a2" href="{% url 'sensors' %}"><div class="menu_image"><img src="{% static 'image/sensor.png' %}"></div><span>Датчики</span></a>
+        <a class="a2" href="{% url 'department' %}"><div class="menu_image"><img src="{% static 'image/group.png' %}"></div><span>Отделы</span></a>
+        <a class="a2" href="{% url 'oborudovanie' %}"><div class="menu_image"><img src="{% static 'image/device.png' %}"></div><span>Оборудование</span></a>
     </div>
 </div>
 
@@ -57,6 +56,8 @@
             elem.style.color = 'white'
         }
     }
+
+
 </script>
 
 </body>

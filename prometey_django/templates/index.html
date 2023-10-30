@@ -11,28 +11,16 @@
 
 <content class="log">
       <a href="{% url 'login' %}"><img src="{% static 'image/Frame_4.png' %}" alt="Logo"></a>
-    <form" method="POST">
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
     <input class="lab" type="text" name="username" placeholder="  Логин">
     <div>
     <input class="lab" type="password" name="password" placeholder="  Пароль">
     </div>
-    <a href="./zavod.html" class="active" style="color: white;">Войти</a>
+    <button type="submit" class="active button2">Войти</button>
 
     </form>
     </content>
-
-<form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    <input type="text" name="username" placeholder="Логин">
-    <input type="password" name="password" placeholder="Пароль">
-    <button type="submit" class="active">Войти</button>
-</form>
-
-<form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="active">Войти</button>
-</form>
 
 </body>
 </html>
