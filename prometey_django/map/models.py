@@ -79,3 +79,29 @@ class SensorType(models.Model):
 
     def __str__(self):
         return self.name
+        
+
+class MapRooms(models.Model):
+    name = models.CharField(max_length=100)
+    level = models.IntegerField()
+    coordinates_json = models.JSONField()
+    
+    def __str__(self):
+        return self.name
+
+class MapIcons(models.Model):
+    file_name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.file_name
+
+class MapPoint(models.Model):
+    name = models.CharField(max_length=100, null=True, blank=True)
+    text = models.CharField(max_length=100, null=True, blank=True)
+    icon = models.ForeignKey(MapIcons, on_delete=models.CASCADE, null=True, blank=True)
+    level = models.IntegerField()
+    coordinates_json = models.JSONField()
+
+    def __str__(self):
+        return self.name
+

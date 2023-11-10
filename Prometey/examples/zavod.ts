@@ -65,8 +65,7 @@ const layers = [
         "source": "indoor",
         "paint": {
             "fill-color": "#48ff00",
-            "fill-opacity": 1,
-            "symbol": "1123"
+            "fill-opacity": 1
         }
     },
     {
@@ -78,7 +77,6 @@ const layers = [
         "id": "indoor-arrows",
         "type": "line",
         "source": "indoor",
-
         "paint": {
             "line-color": "#ff0000",
             "line-width": 2
@@ -105,7 +103,7 @@ map.addControl(new IndoorControl());
 await mapLoadedPr;
 
 const image: ImageData = await new Promise(resolve => map.loadImage(
-    './img/lockers.png', (_: string, image: ImageData) => resolve(image)));
+    './img/red-marker.png', (_: string, image: ImageData) => resolve(image)));
 map.addImage('poi', image);
 
 map.addSource('pois', {
@@ -121,79 +119,9 @@ map.addSource('pois', {
                 },
                 properties: {
                     level: '1',
-                    name: 'Paul',
-                    text: '112234'
-                },
-
-
-
-
+                    name: 'Paul'
+                }
             },
-            {
-                type: "Feature",
-                properties: {},
-                geometry: {
-                    coordinates: [
-                      37.74443202468521,
-                      55.743786032097546
-                    ],
-                    type: "Point"
-                },
-                properties: {
-                    level: '1',
-                    name: 'Paul',
-                    text: 'Склад №1'
-                },
-            },
-            {
-                type: "Feature",
-                properties: {},
-                geometry: {
-                    coordinates: [
-                      37.744728047370785,
-                      55.743265588163496
-                    ],
-                    type: "Point"
-                },
-                properties: {
-                    level: '1',
-                    name: 'Paul',
-                    text: 'Склад №2'
-                },
-            },
-            {
-                type: "Feature",
-                properties: {},
-                geometry: {
-                    coordinates: [
-                      37.74439492587058,
-                      55.743337565108874
-                    ],
-                    type: "Point"
-                },
-                properties: {
-                    level: '1',
-                    name: 'Paul',
-                    text: 'Склад №3'
-                },
-            },
-            {
-                type: "Feature",
-                properties: {},
-                geometry: {
-                    coordinates: [
-                    37.74564216199545,
-                    55.74298529478588
-                    ],
-                    type: "Point"
-                },
-                properties: {
-                    level: '1',
-                    name: 'Paul',
-                    text: 'Склад №4'
-                },
-            }
-            /*,
             {
                 type: 'Feature',
                 geometry: {
@@ -204,7 +132,7 @@ map.addSource('pois', {
                     level: '2',
                     name: 'Relay'
                 }
-            }*/
+            }
         ]
     }
 });
@@ -214,12 +142,8 @@ map.indoor.addLayerForFiltering({
     'type': 'symbol',
     'source': 'pois',
     'layout': {
-        'icon-image': 'poi',
-        'text-field': ['get', 'text'],
-        'text-offset': [0, 1.25],
-        'text-anchor': 'top'
-    },
-    
+        'icon-image': 'poi'
+    }
 });
 
 map.on('click', 'pois', (e) => {

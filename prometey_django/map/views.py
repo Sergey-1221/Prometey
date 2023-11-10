@@ -18,23 +18,7 @@ def getjson_arrow(requests, path):
     f = open('arrow_1.geojson')
     data = json.load(f)
     data = data["features"]
-    """
-    #data_arrow["features"].append(data[0])
-    data_arrow["features"].append(data[1])
-    #data_arrow["features"].append(data[2])
-    data_arrow["features"].append(data[3])
-    #data_arrow["features"].append(data[4])
-    #data_arrow["features"].append(data[5])
-    #data_arrow["features"].append(data[6])
-    #data_arrow["features"].append(data[7])
-    data_arrow["features"].append(data[8])
-    #data_arrow["features"].append(data[9])
-    #data_arrow["features"].append(data[10])
-    #data_arrow["features"].append(data[11])
-    #data_arrow["features"].append(data[12])
-    #data_arrow["features"].append(data[13])
-
-    """
+    
     if path == 1:
         data_arrow["features"].append(data[14])
     elif path == 2:
@@ -44,6 +28,81 @@ def getjson_arrow(requests, path):
         data_arrow["features"].append(data[17])
 
     return JsonResponse(data_arrow)
+
+
+def get_geojson(requests):
+    data = {
+        "type": "FeatureCollection",
+        "features": []
+    }
+    items = MapRooms.objects.all()
+    for item in items:
+        data["features"].append({
+              "type": "Feature",
+              "id": str(item.id),
+              "properties": {
+                "@id": str(item.id)+"_id",
+                "clothes": "children",
+                "fill": "#3b86c9",
+                "fill-opacity": "1",
+                "indoor": "room",
+                "level": str(item.level),
+                "name": item.name,
+                "stroke": "#000314",
+                "stroke-opacity": "1",
+                "stroke-width": "0.5",
+                "id": str(item.id)
+              },
+              "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    item.coordinates_json
+                ]
+              }
+            })
+
+
+    return JsonResponse(data)
+
+def get_geojson_icon(requests):
+    items = MapIcons.objects.all()
+    res = []
+    for item in items:
+        res.append(item.file_name)
+
+    return JsonResponse({'img': res})
+
+def get_geojson_point(requests):
+    items = MapPoint.objects.all()
+    data = {"data": []}
+
+    for item in items:
+        data["data"].append({
+            "icon": item.icon.file_name,
+            "id": str(item.id)+"_point_id",
+            "source": {
+                    'type': 'geojson',
+                    'data': {
+                        'type': 'FeatureCollection',
+                        'features': [
+                            {
+                                'type': 'Feature',
+                                'geometry': {
+                                    'type': 'Point',
+                                    'coordinates': item.coordinates_json
+                                },
+                                'properties': {
+                                    'level': str(item.level),
+                                    'name': item.name,
+                                    'text': item.text
+                                }
+                            }
+                        ]
+                    }
+                }
+            })
+
+    return JsonResponse(data)
 
 
 @login_required(login_url='login')
@@ -148,3 +207,5 @@ def oborudovanie(request):
 @login_required(login_url='login')
 def ind(request):
     return redirect('zavod')
+
+

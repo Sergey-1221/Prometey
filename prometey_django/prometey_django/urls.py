@@ -23,6 +23,11 @@ urlpatterns = [
     path("", ind),
     path("admin/", admin.site.urls),
     path("get_arrow/<int:path>", getjson_arrow),
+    path("get_geojson/", get_geojson),
+    path("get_geojson_icon/", get_geojson_icon),
+    path("get_geojson_point/", get_geojson_point),
+    
+
     path("kamen/", index, name='index'),
     path("zavod/", zavod, name='zavod'),
     path("alitic/", alitic, name='alitic'),

@@ -1,26 +1,29 @@
 {% load static %}
 <!doctype html>
 <html lang="ru">
+
 <head>
     <meta charset="utf-8"/>
-    <title>Indra</title>
+    <title>INDRA</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
-    <link rel="icon" href="{% static 'image/402de4e6a8ea2d56.svg' %}">
+    <link rel="icon" href="{% static 'image/indra_light.png' %}">
 </head>
+
 <body>
 
-<content class="log">
-      <a href="{% url 'login' %}"><img src="{% static 'image/Frame_4.png' %}" alt="Logo"></a>
-    <form method="post" action="{% url 'login' %}">
-        {% csrf_token %}
-    <input class="lab" type="text" name="username" placeholder="  Логин">
-    <div>
-    <input class="lab" type="password" name="password" placeholder="  Пароль">
-    </div>
-    <button type="submit" class="active button2">Войти</button>
+<div class="login">
 
+    <img src="{% static 'image/b572068e1df0965e.png' %}" alt="Logo">
+
+    <form method="post" action="{% url 'login' %}">{% csrf_token %}
+        <input class="form" type="text" name="username" placeholder="Логин">
+        <div>
+        <input class="form" type="password" name="password" placeholder="Пароль">
+        </div>
+        <button class="vhod" type="submit">Войти</button>
     </form>
-    </content>
+
+</div>
 
 </body>
 </html>

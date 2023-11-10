@@ -1,4 +1,4 @@
-import { Map as MapboxMap } from 'mapbox-gl';
+import { Map as MapboxMap, Popup } from 'mapbox-gl';
 
 import accessToken from './mapbox-access-token';
 import { addIndoorTo, IndoorControl, IndoorMap, MapboxMapWithIndoor } from '../src/index';
@@ -17,78 +17,73 @@ const map = new MapboxMap({
     hash: true
 }) as MapboxMapWithIndoor;
 
+const mapLoadedPr = new Promise(resolve => map.on('load', resolve));
 /**
  * Indoor specific
  */
-const layers = [
-    {
-        "filter": [
-            "filter-==",
-            "indoor",
-            "room"
-        ],
-        "id": "indoor-rooms",
-        "type": "fill",
-        "source": "indoor",
-        "paint": {
-            "fill-color": "#6d6d6d",
-            "fill-opacity": 0.9
-        }
-    },
-    {
-        "filter": [
-            "filter-==",
-            "indoor",
-            "area"
-        ],
-        "id": "indoor-areas",
-        "type": "fill",
-        "source": "indoor",
-        "paint": {
-            "fill-color": "#FFFFFF",
-            "fill-opacity": 0.5
-        }
-    },
-    {
-        "filter": [
-            "filter-==",
-            "indoor",
-            "room-sp"
-        ],
-        "id": "indoor-room-sp",
-        "type": "fill",
-        "source": "indoor",
-        "paint": {
-            "fill-color": "#48ff00",
-            "fill-opacity": 1,
-            "symbol": "1123"
-        }
-    },
-    {
-        "filter": [
-            "filter-==",
-            "indoor",
-            "arrow"
-        ],
-        "id": "indoor-arrows",
-        "type": "line",
-        "source": "indoor",
-
-        "paint": {
-            "line-color": "#ff0000",
-            "line-width": 2
-
-        }
-    }
-    
-]
 
 addIndoorTo(map);
 
 // Retrieve the geojson from the path and add the map
-const geojson = await (await fetch('maps/zvd.geojson')).json();
+const geojson = await (await fetch('http://127.0.0.1:3030/get_geojson/')).json();
 
 map.indoor.addMap(IndoorMap.fromGeojson(geojson));
 //map.indoor.addMap(IndoorMap.fromGeojson(geojson, { layers }));
 // Add the specific control
 map.addControl(new IndoorControl());
+
+await mapLoadedPr;
+
+
+const geojson_icon = await (await fetch('http://127.0.0.1:3030/get_geojson_icon/')).json();
+
+for (let i = 0; i < geojson_icon["img"].length; i++) {
+  let img = geojson_icon["img"][i];
+  let image: ImageData = await new Promise(resolve => map.loadImage(
+    './img/'+img, (_: string, image: ImageData) => resolve(image)));
+  map.addImage(img, image);
+
+}
+
+
+const geojson_point = await (await fetch('http://127.0.0.1:3030/get_geojson_point/')).json();
+for (let i = 0; i < geojson_point["data"].length; i++) {
+    let point = geojson_point["data"][i];
+    map.addSource(point.id, point.source);
+
+    map.indoor.addLayerForFiltering({
+        'id': point.id,
+        'type': 'symbol',
+        'source': point.id,
+        'layout': {
+            'icon-image': point.icon,
+            'text-field': ['get', 'text'],
+            'text-offset': [0, 1.25],
+        }
+    });
+
+    map.on('click', point.id, (e) => {
+
+        const { geometry, properties } = e.features![0];
+        const coordinates = (geometry as Point).coordinates.slice();
+        const description = properties?.name + ' (level: ' + properties?.level + ')';
+
+        new Popup()
+            .setLngLat(coordinates as [number, number])
+            .setHTML(description)
+            .addTo(map);
+    });
+
+    map.on('mouseenter', point.id, () => {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    map.on('mouseleave', point.id, () => {
+        map.getCanvas().style.cursor = '';
+    });
+}
+
+
+
+
+

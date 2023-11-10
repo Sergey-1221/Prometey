@@ -1,3 +1,7 @@
+/********************/
+/*ОСНОВНЫЕ НАСТРОЙКИ*/
+/********************/
+
 html, body{
   height: 100%;
   width: 100%;
@@ -10,6 +14,139 @@ html, body{
   list-style: none;
   outline: none;
   border: none;
+}
+
+a{
+  text-decoration: none;
+  color: #fff;
+  transition: .25s;
+}
+
+span{
+  transition: .25s;
+}
+
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}
+
+
+
+
+
+
+/******************************************/
+/*ОБЩИЕ БЛОКИ ДЛЯ ВСЕХ СТРАНИЦ (base.html)*/
+/******************************************/
+
+.header{
+  height: 124px;
+  width: 100%;
+  position: fixed;
+  z-index: 3;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+}
+
+.header1{
+  position: relative;
+  height: 89px;
+  width: 100%;
+  text-align: center;
+  background: #1B1464;
+  color: #000;
+
+}
+
+.header1 a {
+  height: 56px;
+  width: 175px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.logout {
+  position: absolute;
+  height: 35px;
+  width: 35px;
+  right: 22px;
+  top: 28px;
+}
+
+.logout a{
+  width: auto;
+  height: auto;
+}
+
+.header2{
+  width: 100%;
+  height: 35px;
+  bottom: 20px;
+  background-color: #4852B1;
+  text-align: center;
+}
+
+.header2 .a1{
+  text-align: center;
+  width: 215px;
+  height: 100%;
+  background-color: none;
+  color: #545454;
+  display: inline-block;
+  margin: auto;
+  position: relative;
+}
+
+.header2 a span{
+  height: 24px;
+  color: white;
+  font-size: 18px;
+  font-family: "Istok Web", Arial;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-top: 5px;
+}
+
+.a1:hover{
+  text-align: center;
+  background-color: #3F378E;
+  color: white;
+  border-radius: 0 0 7px 7px;
+}
+
+.header2 .active{
+  text-align: center;
+  background-color:#1b1464 ;
+  margin: auto;
+  border-radius: 0 0 7px 7px;
+}
+
+.menu{
+  margin-top: 124px;
+  position: fixed;
+  width: 230px;
+  height: 100%;
+  font-size: 14px;
+  border-right: 0.5px solid #adadad;
+  background-color: white;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.menu .active{
+  text-align: center;
+  background-color:#1b1464 ;
+  margin: auto;
+  color: white;
 }
 
 .nav{
@@ -89,257 +226,6 @@ html, body{
   left: 0px;
 }
 
-.a3{
-  display: block;
-  position: relative;
-  bottom:400px;
-  color: #000000;
-  text-align: center;
-  width: 130px;
-  background-color: none;
-  text-decoration: none;
-  color: #fff;
-}
-
-.active2{
-  position: sticky;
-  text-align: center;
-  color: white;
-  background-color:#1b1464 ;
-  margin: auto;
-}
-
-.button2{   
-  width: 80px;
-  border-radius: 3px;
-  /*float: right; */
-  display:table-column;      
-  border-radius: 4px;
-  color: #fff;
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  padding: 8px 16px;
-  margin: 5px auto;
-  text-decoration: none;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: background-color 0.1s linear;
-  -moz-transition: background-color 0.1s linear;
-  -o-transition: background-color 0.1s linear;
-  transition: background-color 0.1s linear;        
-  }
-.button2 {
-  background-color: rgb(166, 177, 171);
-  border: 1px solid rgb(143, 150, 146);
-}
-.button2:focus {background-color:orange;}
-.button2:hover{background-color:orange;} 
-.vbok{
-  border-top: 0.5px solid #000000;
-  padding: 80px 16px;
-  border-radius: 4px;
-  display:table-column;
-  width: 120px;
-  float: right;
-  background-color: rgb(234, 234, 234);
-  top:365px;
-  right: 10px ;
-}
-.log{
-  min-height: 700px;
-  top: 300px;
-  /*margin: 5px auto;*/
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.lab{
-  margin: 5px auto;
-  border-radius: 4px;
-  border-color: #000000;
-  position: block;
-  width: 183px;
-  height: 29px;
-  left: 863px;
-  top: 520px;
-  background: #EBEBEB;
-  border: 1px solid #8B8B8B;
-  border-radius: 3px;
-}
-.vhod{
-  width: 132px;
-  height: 41px;
-  left: 889px;
-  top: 625px; 
-  float: center; 
-  display:table-column;      
-  border-radius: 6px;
-  color: #fff;
-  text-align: center;
-  font-family: 'Istok Web';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 24px;  
-  padding: 8px 16px;
-  margin: 5px auto;
-  text-decoration: none;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: background-color 0.1s linear;
-  -moz-transition: background-color 0.1s linear;
-  -o-transition: background-color 0.1s linear;
-  transition: background-color 0.1s linear;
-  background-color: #3E33B0;
-  border: 1px solid rgb(143, 150, 146);
-}
-
-.vhod:focus {background-color:orange;}
-.vhod:hover{background-color:orange;} 
-
-a{
-  text-decoration: none;
-  color: #fff;
-  transition: .25s;
-}
-
-span{
-  transition: .25s;
-}
-
-.loghead{
-  width: 15px;
-  height: 15px; 
-  margin-top:  5px ; 
-}
-
-.head{
-  position: fixed;
-  width: 200px auto;
-  box-sizing: fill;
-  display:flex;
-  font-size: 14px;
-  padding: 20px 16px;
-  margin: 10px ;
-  background: #FFFFFF;  
-}
-
-.indrlogo{
-  margin-left: 10px;
-  margin-right: 350px;
-}
-
-.menu{
-  margin-top: 124px;
-  position: fixed;
-  width: 230px;
-  height: 100%;
-  font-size: 14px;
-  border-right: 0.5px solid #adadad;
-  background-color: white;
-  box-sizing: border-box;
-  z-index: 2;
-}
-
-.header{
-  height: 124px;
-  width: 100%;
-  position: fixed;
-  z-index: 3;
-  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
-}
-
-.header1{
-  position: relative;
-  height: 89px;
-  width: 100%;
-  text-align: center;
-  background: #1B1464;
-  color: #000;
-
-}
-
-.header1 a {
-  height: 50px;
-  width: 160px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-.header2{
-  width: 100%;
-  height: 35px;
-  bottom: 20px;
-  background-color: #4852B1;
-  text-align: center;
-  box-shadow: 
-  
-}
-.header2 .a1{
-  text-align: center;
-  width: 215px;
-  height: 100%;
-  background-color: none;
-  color: #545454;
-  display: inline-block;
-  margin: auto;
-  position: relative;
-}
-
-.header2 a span{
-  height: 24px;
-  color: white;
-  font-size: 18px;
-  font-family: "Istok Web", Arial;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin-top: 5px;
-}
-
-.a1:hover{
-  text-align: center;
-  background-color: #3F378E;
-  color: white;
-  border-radius: 0 0 7px 7px;
-}
-
-.header2 .active{
-text-align: center;
-background-color:#1b1464 ;
-margin: auto;
-border-radius: 0 0 7px 7px;
-}
-
-.menu .active{
-text-align: center;
-background-color:#1b1464 ;
-margin: auto;
-color: white;
-}
-
-.kilo{
-  text-align: center;
-  margin: auto;
-  color: white;
-}
-
-.cent{
-  width: auto;
-  height: auto;
-  position: static;
-  margin-left: 400px;
-  margin-top: 150px;
-  
-}
-
 .article{
   height: 100%;
   width: 100%;
@@ -347,57 +233,92 @@ color: white;
   padding-top: 124px;
 }
 
+
+
+
+
+/***********************************/
+/*СТРАНИЦА АВТОРИЗАЦИИ (index.html)*/
+/***********************************/
+
+.login{
+  height: 550px;
+  width: 281px;
+  margin: auto;
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.login img{
+  margin-left: 2px;
+}
+
+.form{
+  margin: 5px auto;
+  width: 187px;
+  height: 29px;
+  left: 863px;
+  top: 520px;
+  background: #EBEBEB;
+  border: 1px solid #8B8B8B;
+  border-radius: 7px;
+  padding-left: 7px;
+}
+
+.vhod{
+  width: 132px;
+  height: 41px;
+  display:table-column;      
+  border-radius: 7px;
+  color: #fff;
+  text-align: center;
+  font-family: "Istok Web", Arial;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;  
+  padding: 8px 16px;
+  margin: 12px auto 0;
+  text-decoration: none;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  transition: background-color 0.1s linear;
+  background-color: #291ea5;
+  border: 1px solid rgb(143, 150, 146);
+}
+
+.vhod:focus{
+  background-color:#3F378E;
+}
+
+.vhod:hover{
+  background-color:#3F378E;
+} 
+
+
+
+
+
+/********************************************************/
+/*СТРАНИЦА КАРТА (zavod.html) !!! ЗАМЕНИТЬ НА (map.html)*/
+/********************************************************/
+
 .map{
   height: 99%; 
   width: 100%;
 }
-.row1{
-  position: static;
-  top: 40px; left: 40px;
-  margin-left: 20px;
-  margin-right: 200px;
-  display: inline-block;
-  border: 10px;
-  width: 265px;
-  height: 185px;
-  left: 200px;
-  right: 200px;
-  top: 156px;
-  
-}
-.txt {
-  border-top: 2px solid #87ceeb;
-  border-bottom: 2px solid #87ceeb;
-}
-#inf h3{
-  background: url(./image/open.png) no-repeat 0% 10%;
-  padding-left: 20px;
-}
-#inf h3.close {
-  background-image: url(./image/close.png);
-}
-#inf .txt {
-    display: none;
-}
 
-.foto{
-background: #FFFFFF;
-border: 2px solid #404040;
-border-radius: 10px;
-margin-left: 50px;
-margin-top: 50px;
-width: 173px;
-height: 214px;
-}
 
-.ug{
-  font-family: 'Istok Web', Arial;
-  margin-top: -210px; 
-  margin-left: 264px;
-  width: 350px;
-  height: 499px;
-  font-size: 30px;
-}
+
+
+
+/*****************************************************************************/
+/*СТРАНИЦА ПРЕДПРИЯТИЕ - ОБЗОР (KAMEN.html) !!! ЗАМЕНИТЬ НА (main_panel.html)*/
+/*****************************************************************************/
 
 .counters{
   width: 90%;
@@ -445,35 +366,36 @@ height: 214px;
   color: #515151;
 }
 
-.reestr_of_workers{
+
+
+
+
+/****************************************************************************/
+/*ОБЩИЕ БЛОКИ ДЛЯ ПРЕДПРИЯТИЕ (KAMEN.html) !!! ЗАМЕНИТЬ НА (main_panel.html)*/
+/****************************************************************************/
+
+.database{
   font-size: 16px;
   width: 100%;
   margin: 113px auto 0;
   border-collapse: collapse;
   font-family: 'Istok Web', Arial;
-  border-left: 1px solid #A9A9A9;
-  border-bottom: 1px solid #dedede;
-  border-right: 1px solid #A9A9A9;
-
 }
 
-.reestr_of_workers th{
-  background-color: #d0cdcd;
-  border-left: 1px solid #A9A9A9;
-  border-right: 1px solid #A9A9A9;
+.database th{
+  background-color: #e2e2e2;
 }
 
-.reestr_of_workers td{
+.database td{
   text-align: center;
-  border-left: 1px solid #A9A9A9;
-  border-right: 1px solid #A9A9A9;
 }
 
-.reestr_of_workers tr{
+.database tr{
   height: 39px;
 }
 
-.reestr_of_workers tr:nth-child(odd) { background-color: #EBEBEB;
+.database tr:nth-child(odd) { 
+  background-color: #f4f4f4;
   height: 39px;
 }
 
@@ -485,12 +407,13 @@ height: 214px;
 }
 
 .manage_button{
-  float: left;
+  display: inline-block;
   padding-top: 7px;
   text-align: center;
   height: 40px;
   border-radius: 7px; 
-  box-shadow: 0px 1px 4px 0 #9d9595;
+  box-shadow: 0px 1px 3px 0 #9d9595;
+  transition: .1s;
 }
 
 .manage_button img{
@@ -507,62 +430,135 @@ height: 214px;
   margin: 2px 9px 0 7px;
 }
 
+.manage_button:hover{
+  box-shadow: 0px 2px 5px 0 #9d9595;
+}
+
+.manage_button:active{
+  box-shadow: 0px 0px 1px 0 #9d9595;
+}
+
 hr{
   border: 0.5px solid #C6C6C6;
   margin-bottom: 5px;
 }
 
+
+
+
+
+/*******************************************************************************/
+/*СТРАНИЦА ПРЕДПРИЯТИЕ - РЕЕСТР СОТРУДНИКОВ - ПРОФИЛЬ СОТРУДНИКА  (Reestr.html)*/
+/*******************************************************************************/
+
+.foto{
+  height: 100%;
+  width: 270px;
+  position: relative;
+  display: inline-block;
+  float: left;
+}
+
+.foto img{
+  background: #FFFFFF;
+  border: 2px solid #404040;
+  border-radius: 7px;
+  display: block;
+  margin: 50px auto 0;
+  width: 177px;
+  height: 236px;
+}
+
+.info{
+  height: 100%;
+  display: inline-block;
+}
+
+.name_and_id{
+  font-family: 'Istok Web', Arial;
+  font-size: 30px;
+  margin-top: 50px;
+}
+
 .main_info{
-  margin-left: 264px;
-  margin-top: -353px;
+  margin-top: 64px;
   width: 400px;
 }
 
 .main_info h1{
   color: #A9A9A9;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: normal;
   margin-bottom: 20px;
 }
 
 .main_info span{
-  font-size: 20px;
+  font-size: 16px;
   text-align: left;
   font-weight: bold;
 }
 
 .main_info .added_info{
   text-align: right;
-  font-size: 20px;
+  font-size: 16px;
   float: right;
   font-weight: normal;
 }
 
 .work_info{
-  margin-left: 264px;
   margin-top: 64px;
   width: 400px;
 }
 
 .work_info h1{
   color: #A9A9A9;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: normal;
   margin-bottom: 20px;
 }
 
 .work_info span{
-  font-size: 20px;
+  font-size: 16px;
   text-align: left;
   font-weight: bold;
 }
 
 .work_info .added_info{
   text-align: right;
-  font-size: 20px;
+  font-size: 16px;
   float: right;
   font-weight: normal;
 }
+
+.info .map{
+  display: inline-block;
+  float: right;
+  width: 350px;
+  height: 350px;
+  margin-left: 600px;
+  margin-top: -270px;
+  border-radius: 7px;
+}
+
+.info .map iframe{
+  box-shadow: 0px 1px 4px 0 #9d9595;
+}
+
+.info .map h1{
+  color: #A9A9A9;
+  font-size: 16px;
+  font-weight: normal;
+  margin-top: 90px;
+  text-align: center;
+}
+
+
+
+
+
+/**************************/
+/*ДЛЯ СТРАНИЦ В РАЗРАБОТКЕ*/
+/**************************/
 
 .in_process{
   margin-top: 120px;
