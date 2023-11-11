@@ -55,10 +55,12 @@ for (let i = 0; i < geojson_point["data"].length; i++) {
         'id': point.id,
         'type': 'symbol',
         'source': point.id,
+
         'layout': {
             'icon-image': point.icon,
             'text-field': ['get', 'text'],
             'text-offset': [0, 1.25],
+
         }
     });
 
@@ -67,11 +69,17 @@ for (let i = 0; i < geojson_point["data"].length; i++) {
         const { geometry, properties } = e.features![0];
         const coordinates = (geometry as Point).coordinates.slice();
         const description = properties?.name + ' (level: ' + properties?.level + ')';
+        //let elem = document.querySelector<HTMLDivElement>('.panarams')!
+        
+        //elem.style.display = 'block';
 
+        //console.log(elem);
         new Popup()
             .setLngLat(coordinates as [number, number])
             .setHTML(description)
             .addTo(map);
+
+        
     });
 
     map.on('mouseenter', point.id, () => {
@@ -81,8 +89,10 @@ for (let i = 0; i < geojson_point["data"].length; i++) {
     map.on('mouseleave', point.id, () => {
         map.getCanvas().style.cursor = '';
     });
-}
 
+
+
+}
 
 
 

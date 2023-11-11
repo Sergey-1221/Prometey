@@ -6,7 +6,25 @@
     <title>MapGL Indoor - Examples - Simple Map</title>
   </head>
   <body>
+    <div class="panarams">
+      <iframe width="100%" height="100%" allowfullscreen style="border-style:none;" src="http://mycharts.site/src/standalone/pannellum.htm?panorama=http://mycharts.site/examples/an-empty-office-space-nopu9hws.jpeg&amp;preview=http://mycharts.site/examples/examplepano-preview.jpg"></iframe>
+    </div>
     <div id="app"></div>
+    
     <script type="module" src="./simple-map_1.ts"></script>
   </body>
+  <style type="text/css">
+    .panarams {
+      width: 80%;
+      height: 80%;
+      position: fixed;
+      margin-left: 10%;
+      margin-top: 5%;
+      background: #ffffff;
+      z-index: 100;
+      display: none;
+    }
+  </style>
+
+
 </html>

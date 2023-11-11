@@ -82,12 +82,12 @@ class SensorType(models.Model):
         
 
 class MapRooms(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100,  default='', blank=True)
     level = models.IntegerField()
     coordinates_json = models.JSONField()
     
     def __str__(self):
-        return self.name
+        return str(self.name) + " | " + str(self.id) 
 
 class MapIcons(models.Model):
     file_name = models.CharField(max_length=100)
