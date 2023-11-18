@@ -25,7 +25,7 @@ const mapLoadedPr = new Promise(resolve => map.on('load', resolve));
 addIndoorTo(map);
 
 // Retrieve the geojson from the path and add the map
-const geojson = await (await fetch('http://127.0.0.1:3030/get_geojson/')).json();
+const geojson = await (await fetch('http://31.129.105.164:3030/get_geojson/')).json();
 
 map.indoor.addMap(IndoorMap.fromGeojson(geojson));
 //map.indoor.addMap(IndoorMap.fromGeojson(geojson, { layers }));
@@ -35,7 +35,7 @@ map.addControl(new IndoorControl());
 await mapLoadedPr;
 
 
-const geojson_icon = await (await fetch('http://127.0.0.1:3030/get_geojson_icon/')).json();
+const geojson_icon = await (await fetch('http://31.129.105.164:3030/get_geojson_icon/')).json();
 
 for (let i = 0; i < geojson_icon["img"].length; i++) {
   let img = geojson_icon["img"][i];
@@ -46,7 +46,7 @@ for (let i = 0; i < geojson_icon["img"].length; i++) {
 }
 
 
-const geojson_point = await (await fetch('http://127.0.0.1:3030/get_geojson_point/')).json();
+const geojson_point = await (await fetch('http://31.129.105.164:3030/get_geojson_point/')).json();
 for (let i = 0; i < geojson_point["data"].length; i++) {
     let point = geojson_point["data"][i];
     map.addSource(point.id, point.source);
