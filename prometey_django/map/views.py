@@ -120,7 +120,8 @@ def zavod(request):
     num_path = request.GET.get("path")
     if num_path != None:
         context["num_path"] = num_path
-    return render(request, 'zavod.html', context=context)
+        return render(request, 'zavod.html', context=context)
+    return render(request, 'zavod_1.html', context=context)
 
 
 @login_required(login_url='login')
